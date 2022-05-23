@@ -1,0 +1,23 @@
+<!--pages/mine/index.wxml-->
+<view class="userBasicView">
+    <view class="userContainer">
+        <view class="userPhoto">
+            <image src="/images/photo.png" mode="scaleToFill"></image>
+        </view>
+        <view class="userName">{{username}}</view>
+    </view>
+</view>
+<view class="userData">
+    <view class="userDataTitle">预约记录</view>
+    <scroll-view class="records" scroll-y>
+        <view class="record" wx:for="{{records}}" wx:key="index">
+            <view class="roomIcon">
+                <image src="/images/room-study.png" mode="widthFix"></image>
+            </view>
+            <view class="roomInfo">
+                <view class="roomName">{{item.type}} - {{item.room}}</view>
+                <view class="usingTime">{{item.start-time}} - {{item.end-time}}</view>
+            </view>
+        </view>
+    </scroll-view>
+</view>

@@ -1,0 +1,111 @@
+/* pages/mine/index.wxss */
+/* page{
+    background: rgb(50,150,250,0.1);
+} */
+.userBasicView{
+    margin-top: 50rpx;
+    width: 750rpx;
+    height: 250rpx;
+}
+.userContainer{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction:row;
+    box-sizing: border-box;
+    background-color: rgb(50,150,250,0.1);
+}
+.userPhoto{
+    width: 128rpx;
+    height: 128rpx;
+    border: 8rpx solid rgb(50,150,250);
+    border-radius: 40rpx;
+    margin-top: 40rpx;
+    margin-left: 60rpx;
+}
+.userPhoto image{
+    width: 100%;
+    height: 100%;
+}
+.userName{
+    width: 400rpx;
+    height: 100rpx;
+    margin-top: 40rpx;
+    margin-left: 40rpx;
+    padding-top: 20rpx;
+    font-size: 56rpx;
+    /* border: 1rpx solid red; */
+}
+.userData{
+    width: 750rpx;
+    height: 850rpx;
+    
+    margin-top: 40rpx;
+    padding: 5rpx 0;
+}
+.userDataTitle{
+    font-size: 32rpx;
+    margin-left: 20rpx;
+    margin-bottom: 5rpx;
+}
+.userDataTitle::before{
+    width: 20rpx;
+    height: 20rpx;
+    content: " ";
+    background-color: lightskyblue;
+    display: inline-block;
+    margin-right: 10rpx;
+    border-radius: 100%;
+}
+.records{
+    padding-top: 10rpx;
+    height: 830rpx;
+    background-color: rgb(50,150,250,0.1);
+    padding: 5rpx 0;
+}
+.record{
+    width: 100%;
+    height: 130rpx;
+    display:flex; 
+    flex-direction: row;
+    box-sizing: border-box;
+    margin-bottom: 3rpx;
+    background: #fff;
+    /* border: 1rpx solid red; */
+}
+.roomIcon{
+    width: 80rpx;
+    height: 80rpx;
+    /* border: 1rpx solid red; */
+}
+.roomIcon image{
+    display: block;
+    width: 100%;
+    height: 100%;
+    margin:auto;
+    padding-top: 30rpx;
+    padding-left: 20rpx;
+}
+.roomInfo{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 500rpx;
+    padding-left: 30rpx;
+    padding-top: 15rpx;
+}
+.roomName{
+    width: 100%;
+    height: 50rpx;
+    font-size: 36rpx;
+    padding-left: 20rpx;
+    /* border: 1rpx solid blue */
+}
+.usingTime{
+    width: 100%;
+    height: 40rpx;
+    font-size: 24rpx;
+    /* border: 1rpx solid red; */
+    padding-bottom: 10rpx;
+    padding-left: 20rpx;
+}

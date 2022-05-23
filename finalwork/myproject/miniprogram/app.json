@@ -1,0 +1,41 @@
+{
+    "pages": [
+        "pages/login/index",
+        "pages/index/index",
+        "pages/mine/index",
+        "pages/rooms/index",
+        "pages/appoint/index"
+    ],
+    "window": {
+        "navigationBarBackgroundColor": "#3296FA",
+        "navigationBarTextStyle": "white",
+        "navigationBarTitleText": "活动中心场所预约",
+        "backgroundColor": "#f6f6f6",
+        "backgroundTextStyle": "light",
+        "enablePullDownRefresh": true
+    },
+    "tabBar": {
+        "color": "#bfbfbf",
+        "selectedColor": "#3296FA",
+        "borderStyle": "black",
+        "list": [
+            {
+                "pagePath": "pages/index/index",
+                "text": "首页",
+                "iconPath": "/images/index.png",
+                "selectedIconPath": "/images/index-h.png"
+            },{
+                "pagePath": "pages/rooms/index",
+                "text": "查询",
+                "iconPath": "/images/list.png",
+                "selectedIconPath": "/images/list-h.png"
+            },{
+                "pagePath": "pages/mine/index",
+                "text": "我的",
+                "iconPath": "/images/mine.png",
+                "selectedIconPath": "/images/mine-h.png"
+            }
+        ]
+    },
+    "sitemapLocation": "sitemap.json"
+}

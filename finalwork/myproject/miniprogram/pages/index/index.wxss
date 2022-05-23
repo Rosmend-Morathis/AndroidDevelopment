@@ -1,0 +1,18 @@
+/* pages/index/index.wxss */
+.banner{
+    margin-top: 50rpx;
+    width: 750rpx;
+}
+.banner image{
+    width: 100%;
+}
+.homeBtnView{
+    margin-top: 100rpx;
+}
+.homeBtnView button{
+    width: 80%;
+    margin-bottom: 50rpx;
+}
+.homeBtnView .aptBtn{
+    background-color: rgb(50,150,250);
+}

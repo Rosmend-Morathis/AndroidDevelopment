@@ -1,0 +1,33 @@
+/* pages/login/index.wxss */
+.loginView{
+    margin-top: 300rpx;
+}
+.user{
+    width: 600rpx;
+    height: 100rpx;
+    margin-top: 60rpx;
+    margin-left: 100rpx;
+    /* border: 1rpx solid red; */
+    display: flex;
+    /* flex: 1 9; */
+    
+}
+.usertext{
+    /* border: 1rpx solid blue; */
+    font-size: 46rpx;
+}
+.user input{
+    padding-top: 5rpx;
+    border: 1rpx solid rgb(50,150,250);
+    background-color: #f6f6f6;
+    width: 400rpx;
+    height: 50rpx;
+}
+.loginBtnView button{
+    margin-top: 120rpx;
+    width: 60%;
+    
+}
+.loginBtnView .loginBtn{
+    background-color: rgb(50,150,250);
+}

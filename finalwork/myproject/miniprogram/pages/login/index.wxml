@@ -1,0 +1,21 @@
+<!--pages/login/index.wxml-->
+<view class="container">
+    <form bindsubmit="login">
+        <view class="loginView">
+            <view class="user">
+                <view class="usertext">工号：</view>
+                <input type="text" name="uid" id="userid"/>
+            </view>
+            <view class="user">
+                <view class="usertext">密码：</view>
+                <input type="password" name="upwd" id="userpwd"/>
+            </view>
+        </view>
+        <view class="loginBtnView">
+            <button class="loginBtn" type="primary" form-type="submit">登录</button>
+        </view>
+    </form>
+</view>
+
+
+

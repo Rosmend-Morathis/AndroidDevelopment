@@ -1,0 +1,36 @@
+<!--pages/appoint/index.wxml-->
+<view class="roomView">
+    <view class="roomIcon">
+        <image src="/images/room-study.png" mode="widthFix"></image>
+    </view>
+    <view class="roomName">{{room}}</view>
+</view>
+<view class="roomTime">
+    <view class="roomTimeItem">
+        <picker mode="date" value="{{date}}" start="{{today}}" end="{{enddate}}" bindchange="bindDateChange">
+            <view class="itemText">
+                <view class="timeText">预约日期: </view>
+                <view class="timeData">{{date}}</view>
+            </view>
+        </picker>
+    </view>
+    <view class="roomTimeItem">
+        <picker mode="time" value="{{starttime}}" start="06:00" end="22:00" bindchange="bindStartTimeChange">
+            <view class="itemText">
+                <view class="timeText">起始时间: </view>
+                <view class="timeData">{{starttime}}</view>
+            </view>
+        </picker>
+    </view>
+    <view class="roomTimeItem">
+        <picker mode="time" value="{{endtime}}" start="06:00" end="22:00" bindchange="bindEndTimeChange">
+            <view class="itemText">
+                <view class="timeText">结束时间: </view>
+                <view class="timeData">{{endtime}}</view>
+            </view>
+        </picker>
+    </view>
+</view>
+<view class="homeBtnView">
+    <button type="primary" class="aptBtn">立即预约</button>
+</view>

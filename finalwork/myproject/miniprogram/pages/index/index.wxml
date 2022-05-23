@@ -1,0 +1,9 @@
+<!--pages/index/index.wxml-->
+<view class="banner">
+    <image mode="widthFix" src="/images/banner.png"></image>
+</view>
+
+<view class="homeBtnView">
+    <button type="primary" class="aptBtn" bindtap="gotoList">现在预约</button>
+    <button type="default" class="userBtn" bindtap="gotoMyApt">我的预约</button>
+</view>

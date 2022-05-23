@@ -1,0 +1,55 @@
+<!--pages/rooms/index.wxml-->
+
+<view class="navHead">
+    <view class="nav">
+    <view class="navItem">
+        <view class="content" bindtap="selectAll">全部</view>
+    </view>
+    <view class="navItem">
+        <view class="content" bindtap="selectRooms" data-whichone="0">类型</view>
+    </view>
+    <view class="navItem">
+        <view class="content" bindtap="selectRooms" data-whichone="1">楼层</view>
+    </view>
+    <view class="navItem">
+        <view class="content" bindtap="selectRooms" data-whichone="2">状态</view>
+    </view>
+</view>
+<view class="shade" style="display: {{shade}};" bindtouchend="touchShade"></view>
+<view class="subNav">
+    <!-- <view class="subNavList"></view> -->
+    <view class="subNavList" id="typelist" style="display:{{subNavShowMode[0]}}">
+        <view class="subNavItem" bindtap="selectByType" data-roomtype="自习室">自习室</view>
+        <view class="subNavItem" bindtap="selectByType" data-roomtype="研讨室">研讨室</view>
+        <view class="subNavItem" bindtap="selectByType" data-roomtype="报告厅">报告厅</view>
+        <view class="subNavItem" bindtap="selectByType" data-roomtype="桌游室">桌游室</view>
+    </view>
+    <view class="subNavList" id="floorlist" style="display:{{subNavShowMode[1]}}">
+        <view class="subNavItem" bindtap="selectByFloor" data-roomfloor="1">一楼</view>
+        <view class="subNavItem" bindtap="selectByFloor" data-roomfloor="2">二楼</view>
+        <view class="subNavItem" bindtap="selectByFloor" data-roomfloor="3">三楼</view>
+    </view>
+    <view class="subNavList" id="statelist" style="display:{{subNavShowMode[2]}}">
+        <view class="subNavItem" bindtap="selectByState" data-roomstate="空闲">空闲</view>
+        <view class="subNavItem" bindtap="selectByState" data-roomstate="预约中">预约中</view>
+        <view class="subNavItem" bindtap="selectByState" data-roomstate="使用中">使用中</view>
+    </view>
+</view>
+</view>
+
+<view class="roomListView">
+    <view class="roomView" wx:for="{{rooms}}" wx:key="index">
+        <view class="roomIcon">
+            <image src="/images/room-study.png" mode="scaleToFill"></image>
+        </view>
+        <view class="roomInfo">
+            <view class="roomName">{{item.type}} - {{item.name}}</view>
+            <view class="roomState" id="free" wx:if="{{item.state == '空闲'}}">{{item.state}}</view>
+            <view class="roomState" id="busy" wx:if="{{item.state == '使用中'}}">{{item.state}}</view>
+            <view class="roomState" id="booked" wx:if="{{item.state == '预约中'}}">{{item.state}}</view>
+        </view>
+        <view class="roomAptBtn">
+            <button class="loginBtn" bindtap="gotoAppoint" data-info="{{item}}">预约</button>
+        </view>
+    </view>
+</view>

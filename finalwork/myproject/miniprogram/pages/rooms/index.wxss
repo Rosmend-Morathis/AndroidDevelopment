@@ -1,0 +1,155 @@
+/* pages/rooms/index.wxss */
+page{
+    background: rgb(234,244,254);
+}
+.navHead{
+    position: fixed;
+    height: 82rpx;
+    top: 0;
+    left: 0;
+    z-index: 5;
+}
+.nav{
+    width: 750rpx;
+    height: 80rpx;
+    position: relative;
+    display: flex;
+    box-sizing: border-box;
+    flex-direction: row;
+    background: rgb(234,244,254);
+    border-bottom: 1px solid #f6f6f6;
+}
+.navItem{
+    display:flex;
+    flex: 1;
+    text-align: center;
+    height: 80rpx;
+    align-items: center;
+    justify-content: center;
+    font-size: 40rpx;
+    border: 2rpx solid rgb(155, 205, 255);
+    /* padding: 2rpx 2rpx; */
+}
+.shade{
+    width: 750rpx;
+    height: 100%;
+    z-index: 4;
+    position: fixed;
+    background-color: rgb(0,0,0, 0.3);
+}
+.subNav{
+    z-index: 5;
+    position: relative;
+    width: 750rpx;
+    /* height: 320rpx; */
+    display: flex;
+    box-sizing: border-box;
+    flex-direction: row;
+    /* border-bottom: 1px solid #f6f6f6; */
+    margin-bottom: 2rpx;
+}
+.subNavList{
+    position: absolute;
+    flex-direction: column;
+    text-align: center;
+    width: 25%;
+    font-size: 40rpx;
+    /* margin-top: 4rpx; */
+}
+.subNavItem{
+    /* border: 1rpx solid red; */
+    height: 78rpx;
+    background-color:aliceblue;
+    border: 2rpx solid rgb(50,150,250,0.1);
+    text-align: center;
+    line-height: 80rpx;
+}
+#typelist {
+    left: 187rpx;
+}
+#floorlist {
+    left: 375rpx;
+}
+#statelist {
+    left: 564rpx;
+}
+
+.roomListView{
+    margin-top: 86rpx;
+}
+.roomView{
+    width: 100%;
+    height: 130rpx;
+    position: relative;
+    display:flex; 
+    flex-direction: row;
+    box-sizing: border-box;
+    justify-content: space-between;
+    margin-bottom: 3rpx;
+    background-color:white;
+    /* border: 1rpx solid red; */
+}
+.roomIcon{
+    width: 80rpx;
+    height: 80rpx;
+    /* border: 1rpx solid red; */
+}
+.roomIcon image{
+    display: block;
+    width: 100%;
+    height: 100%;
+    margin:auto;
+    padding-top: 30rpx;
+    padding-left: 20rpx;
+}
+.roomInfo{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 500rpx;
+    padding-left: 30rpx;
+    padding-top: 15rpx;
+}
+.roomName{
+    width: 100%;
+    height: 50rpx;
+    font-size: 36rpx;
+    /* border: 1rpx solid blue */
+}
+.roomState{
+    width: 100rpx;
+    height: 36rpx;
+    font-size: 24rpx;
+    border-radius: 20rpx;
+    text-align: center;
+    margin-bottom: 10rpx;
+    margin-left: 20rpx;
+}
+#free{
+    background-color:lightgreen;
+}
+#busy{
+    background-color:red;
+    color: white;
+}
+#booked{
+    background-color:yellow;
+}
+.roomAptBtn{
+    width: 140rpx;
+    padding-top: 10rpx;
+}
+.aptBtn:not([size='mini']){
+    width: 120rpx;
+    height: 80rpx;
+    background-color: rgb(50,150,250,0.8);
+    font-size: 32rpx;
+    font-weight: 500;
+    color: white;
+    display: flex;
+    padding: 0rpx;
+    border-radius: 40rpx;
+    margin-top: 15rpx;
+    align-content: center;
+    justify-content: center;
+}
