@@ -49,7 +49,7 @@
             <view class="roomState" id="booked" wx:if="{{item.state == '预约中'}}">{{item.state}}</view>
         </view>
         <view class="roomAptBtn">
-            <button class="loginBtn" bindtap="gotoAppoint" data-info="{{item}}">预约</button>
+            <button class="aptBtn" bindtap="gotoAppoint" data-info="{{item}}">预约</button>
         </view>
     </view>
 </view>

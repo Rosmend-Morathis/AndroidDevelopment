@@ -10,7 +10,7 @@
                 {
                     "name": "",
                     "pathName": "pages/rooms/index",
-                    "query": "",
+                    "query": "userid=\"100001\"",
                     "launchMode": "default",
                     "scene": null
                 },
@@ -25,6 +25,13 @@
                     "name": "",
                     "pathName": "pages/appoint/index",
                     "query": "",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "pages/login/index",
+                    "query": "userid=\"100001\"&userpwd=\"100001\"",
                     "launchMode": "default",
                     "scene": null
                 }

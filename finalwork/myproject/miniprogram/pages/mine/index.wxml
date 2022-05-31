@@ -15,9 +15,18 @@
                 <image src="/images/room-study.png" mode="widthFix"></image>
             </view>
             <view class="roomInfo">
-                <view class="roomName">{{item.type}} - {{item.room}}</view>
-                <view class="usingTime">{{item.start-time}} - {{item.end-time}}</view>
+                <view class="roomNameContainer">
+                    <view class="roomName">{{item.type}} - {{item.room}}</view>
+                    <view class="roomState" id="canceled" wx:if="{{item.state == '已取消'}}">{{item.state}}</view>
+                    <view class="roomState" id="finished" wx:if="{{item.state == '已完成'}}">{{item.state}}</view>
+                    <view class="roomState" id="booking" wx:if="{{item.state == '预约中'}}">{{item.state}}</view>
+                    <view class="cancelApt" wx:if="{{item.state == '预约中'}}" bindtap="cancel" data-info="{{item}}">取消</view>
+                </view>
+                <view class="usingTime">{{item.starttime}} - {{item.endtime}}</view>
             </view>
         </view>
     </scroll-view>
+</view>
+<view class="exitBtnView">
+    <button type="warn" class="exitBtn" bindtap="logout">退出登录</button>
 </view>

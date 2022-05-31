@@ -24,13 +24,22 @@ Page({
               console.log('callFunction test result: ', res)
               var access = res.result.access
               var msg = res.result.msg
-              if (access) {
-                // 跳转到首页
-                app.globalData.userid = userid
-                wx.switchTab({
-                  url: '/pages/index/index',
-                })
-              }
+              wx.showToast({
+                title: msg,
+                icon: access ? 'success' : 'error',
+                // image: access ? '/images/toast-t.png' : '/images/toast-f.png',
+                duration: 2000,
+              })
+              setTimeout(()=>{
+                if (access) {
+                    // 跳转到首页
+                    app.globalData.userid = userid
+                    wx.switchTab({
+                      url: '/pages/index/index',
+                    })
+                  }
+              }, 2000)
+              
             }
           })
     },
@@ -38,7 +47,7 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad(options) {
-
+        app.globalData.userid = ""
     },
 
     /**

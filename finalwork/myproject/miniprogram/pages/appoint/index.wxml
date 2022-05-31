@@ -3,7 +3,7 @@
     <view class="roomIcon">
         <image src="/images/room-study.png" mode="widthFix"></image>
     </view>
-    <view class="roomName">{{room}}</view>
+    <view class="roomName">{{type}} - {{room}}</view>
 </view>
 <view class="roomTime">
     <view class="roomTimeItem">
@@ -32,5 +32,5 @@
     </view>
 </view>
 <view class="homeBtnView">
-    <button type="primary" class="aptBtn">立即预约</button>
+    <button type="primary" class="aptBtn" bindtap="appoint">立即预约</button>
 </view>

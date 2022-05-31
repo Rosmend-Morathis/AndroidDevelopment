@@ -15,13 +15,14 @@ Page({
     },
     gotoAppoint: function(e){
         var obj = e.currentTarget.dataset.info
-        var info = obj.type + ' - ' + obj.name
+        var room = obj.name
+        var type = obj.type
         // console.log(info)
         wx.navigateTo({
-          url: '/pages/appoint/index?info='+info,
+          url: '/pages/appoint/index?type='+type+'&room='+room,
         })
     },
-    touchShade: function(e){
+    touchShade: function(){
         this.setData({ 
             subNavShowMode:["none", "none", "none"],
             shade: "none" 
@@ -106,7 +107,7 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow() {
-        
+        this.selectAll()
     },
 
     /**
@@ -127,7 +128,7 @@ Page({
      * 页面相关事件处理函数--监听用户下拉动作
      */
     onPullDownRefresh() {
-
+        this.selectAll()
     },
 
     /**

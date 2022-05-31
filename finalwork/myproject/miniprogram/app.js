@@ -13,10 +13,14 @@ App({
         env: 'cloud1-1g5irf3dd95e8df3',
         traceUser: true,
       });
+    //   wx.cloud.callFunction({
+    //       name: 'updateDatabase'
+    //   })
     }
 
     this.globalData = {
-        userid: ""
+        // userid: ""
+        userid: "100001"
     };
   }
 });
