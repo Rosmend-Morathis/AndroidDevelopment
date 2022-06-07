@@ -23,6 +23,14 @@ function formatTime(date) {
     return [year, month, day].map(formatNumber).join('/')
   }
 
+  function formatDateForAndroid10(date) {
+    var year = date.getFullYear()
+    var month = date.getMonth() + 1
+    var day = date.getDate()
+
+    return [year, month, day].map(formatNumber).join('-')
+  }
+
   function concatDate(date, time){
       return date + ' ' + time + ':00'
   }
@@ -30,6 +38,7 @@ function formatTime(date) {
   module.exports = {
     formatTime,
     formatDate,
+    formatDateForAndroid10,
     concatDate
   }
    

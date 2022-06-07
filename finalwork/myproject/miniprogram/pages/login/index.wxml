@@ -1,5 +1,9 @@
 <!--pages/login/index.wxml-->
 <view class="container">
+    <view class="banner">
+        <image mode="widthFix" src="/images/banner.png"></image>
+    </view>
+
     <form bindsubmit="login">
         <view class="loginView">
             <view class="user">

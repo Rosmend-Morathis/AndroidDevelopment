@@ -27,36 +27,43 @@ Page({
         })
     },
     bindStartTimeChange: function(e){
-        // console.log(e)
+        console.log(e)
         var starttime = e.detail.value
-        let st = utils.concatDate(this.data.date, starttime)
-        
+        let now = Date.parse(new Date(this.data.time.replace(/-/g, '/')))
+        let st = Date.parse(new Date(utils.concatDate(this.data.date, starttime).replace(/-/g, '/')))
+        if (st <= now) {
+            wx.showModal({
+              showCancel: false,
+              content: '请选择有效的开始时间'
+            })
+        } else{
             this.setData({
                 starttime: starttime
             })
-        
+        }
     },
     bindEndTimeChange: function(e){
         // console.log(e)
         var endtime = e.detail.value
-        let et = utils.concatDate(this.data.date, endtime)
-        let st = utils.concatDate(this.data.date, this.data.starttime)
-        // console.log(et)
-        // console.log(st)
-        
+        let st = Date.parse(new Date(utils.concatDate(this.data.date, this.data.starttime).replace(/-/g, '/')))
+        let now = Date.parse(new Date(this.data.time.replace(/-/g, '/')))
+        let et = Date.parse(new Date(utils.concatDate(this.data.date, endtime).replace(/-/g, '/')))
+        if (et <= st || et <= now) {
+            wx.showModal({
+              showCancel: false,
+              content: '请选择有效的结束时间'
+            })
+        } else{
             this.setData({
                 endtime: endtime
             })
-        
-        this.setData({
-            endtime: endtime
-        })
+        }
     },
     appoint: function(date){
         
         var submittime = utils.formatTime(new Date())
-        var starttime = utils.concatDate(this.data.date, this.data.starttime)
-        var endtime = utils.concatDate(this.data.date, this.data.endtime)
+        var starttime = utils.concatDate(this.data.date.replace(/-/g, '/'), this.data.starttime)
+        var endtime = utils.concatDate(this.data.date.replace(/-/g, '/'), this.data.endtime)
         wx.cloud.callFunction({
             name: 'appoint',
             data: {
@@ -91,13 +98,13 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad(options) {
-        console.log(options)
+        // console.log(options)
         var time = new Date()
         var now = utils.formatTime(time)
-        var today = utils.formatDate(time)
+        var today = utils.formatDateForAndroid10(time)
         time.setTime(time.getTime() + 3*24*60*60*1000)
-        var endday = utils.formatDate(time)
-        console.log(now)
+        var endday = utils.formatDateForAndroid10(time)
+        // console.log(now)
         this.setData({
             time: now,
             date: today,

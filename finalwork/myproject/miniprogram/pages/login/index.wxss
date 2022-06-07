@@ -1,6 +1,13 @@
 /* pages/login/index.wxss */
+.banner{
+    margin-top: 50rpx;
+    width: 750rpx;
+}
+.banner image{
+    width: 100%;
+}
 .loginView{
-    margin-top: 300rpx;
+    margin-top: 50rpx;
 }
 .user{
     width: 600rpx;
@@ -24,7 +31,7 @@
     height: 50rpx;
 }
 .loginBtnView button{
-    margin-top: 120rpx;
+    margin-top: 50rpx;
     width: 60%;
     
 }

@@ -19,8 +19,8 @@ App({
     }
 
     this.globalData = {
-        // userid: ""
-        userid: "100001"
+        userid: ""
+        // userid: "100001"
     };
   }
 });
