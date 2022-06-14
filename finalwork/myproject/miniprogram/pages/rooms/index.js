@@ -82,7 +82,11 @@ Page({
     },
     selectAll: function(){
         db.collection('rooms').get().then(res => {
-            this.setData({ rooms: res.data })
+            this.setData({
+                rooms: res.data,
+                subNavShowMode:["none", "none", "none"],
+                shade: "none"
+            })
         })
     },
 

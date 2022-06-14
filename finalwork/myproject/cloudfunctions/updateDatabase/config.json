@@ -2,10 +2,5 @@
     "permissions": {
         "openapi": [
         ]
-    },
-    "triggers": [{
-        "name": "DBUpdateTrigger",
-        "type": "timer",
-        "config": "0 0 * * * * *"
-    }]
+    }
 }

@@ -7,6 +7,7 @@ cloud.init({env: 'cloud1-1g5irf3dd95e8df3'})
 exports.main = async (event, context) => {
     let issuccess = false
     let msg = ""
+    var more = ""
     var apt
     var end
     const wxContext = cloud.getWXContext()
@@ -29,6 +30,7 @@ exports.main = async (event, context) => {
                                 end = new Date(element.endtime)
                                 if(end > apt){
                                     flag = false
+                                    more = `请尝试预约${element.endtime}之后的时间`
                                 }
                             });
                             tag = flag
@@ -62,6 +64,7 @@ exports.main = async (event, context) => {
 
     return {
         issuccess: issuccess,
-        msg : msg
+        msg : msg,
+        more: more
     }
 }

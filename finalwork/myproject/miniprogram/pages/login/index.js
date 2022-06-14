@@ -11,7 +11,7 @@ Page({
     },
 
     login: function(data){
-        // console.log(data)
+        console.log(data)
         var userid = data.detail.value.uid
         var userpwd = data.detail.value.upwd
         wx.cloud.callFunction({
@@ -34,6 +34,9 @@ Page({
                 if (access) {
                     // 跳转到首页
                     app.globalData.userid = userid
+                    wx.cloud.callFunction({
+                        name: 'updateDatabase'
+                    })
                     wx.switchTab({
                       url: '/pages/index/index',
                     })

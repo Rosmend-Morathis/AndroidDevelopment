@@ -60,39 +60,59 @@ Page({
         }
     },
     appoint: function(date){
-        
         var submittime = utils.formatTime(new Date())
         var starttime = utils.concatDate(this.data.date.replace(/-/g, '/'), this.data.starttime)
         var endtime = utils.concatDate(this.data.date.replace(/-/g, '/'), this.data.endtime)
-        wx.cloud.callFunction({
-            name: 'appoint',
-            data: {
-                room: this.data.room,
-                type: this.data.type,
-                date: this.data.date,
-                starttime: starttime,
-                endtime: endtime,
-                submittime: submittime,
-                userid: this.data.userid
-            },
-            complete: res => {
-                console.log('callFunction test result: ', res)
-                var issuccess = res.result.issuccess
-                var msg = res.result.msg
-                wx.showToast({
-                  title: msg,
-                  icon: issuccess ? 'success' : 'error',
-                //   image: issuccess ? '/miniprogram/images/toast-t.png' : '/miniprogram/images/toast-f.png',
-                  duration: 2000,
-                })
-                setTimeout(()=>{
-                    wx.navigateBack({
-                        delta: 1,
-                    })
-                }, 2000)
-                
-            }
-        })
+        let st = Date.parse(starttime)
+        let et = Date.parse(endtime)
+        let now = Date.parse(submittime)
+        if (now < st && st < et) {
+            wx.cloud.callFunction({
+                name: 'appoint',
+                data: {
+                    room: this.data.room,
+                    type: this.data.type,
+                    date: this.data.date,
+                    starttime: starttime,
+                    endtime: endtime,
+                    submittime: submittime,
+                    userid: this.data.userid
+                },
+                complete: res => {
+                    console.log('callFunction test result: ', res)
+                    var issuccess = res.result.issuccess
+                    var msg = res.result.msg
+                    var more = res.result.more
+                    if (issuccess) {
+                        wx.showToast({
+                            title: msg,
+                            content: more,
+                            icon: issuccess ? 'success' : 'error',
+                          //   image: issuccess ? '/miniprogram/images/toast-t.png' : '/miniprogram/images/toast-f.png',
+                            duration: 2000,
+                          })
+                          setTimeout(()=>{
+                              wx.navigateBack({
+                                  delta: 1,
+                              })
+                          }, 1000)
+                    }else{
+                        wx.showModal({
+                            showCancel: false,
+                            cancelColor: 'cancelColor',
+                            title: msg,
+                            content: more
+                        })
+                    }
+                }
+            })
+        }else{
+            wx.showModal({
+                showCancel: false,
+                content: '请选择有效的预约时间'
+            })
+        }
+        
     },
     /**
      * 生命周期函数--监听页面加载

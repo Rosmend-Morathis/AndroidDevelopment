@@ -6,38 +6,36 @@ cloud.init({env: 'cloud1-1g5irf3dd95e8df3'})
 // 云函数入口函数
 exports.main = async (event, context) => {
     const wxContext = cloud.getWXContext()
-    const now = new Date()
+    const now = Date.parse(new Date())
     var start
     var end
     await cloud.database().collection('records').orderBy('submittime', 'asc').where({state: "预约中"}).get().then(
-        res => {
+        async(res) => {
             res.data.forEach(element => {
-                start = new Date(element.starttime)
-                end = new Date(element.endtime)
+                start = Date.parse(new Date(element.starttime))
+                end = Date.parse(new Date(element.endtime))
                 if (now < start){
-                    cloud.database().collection('rooms').where({name: element.room}).get().then(
-                        r =>{
+                    await cloud.database().collection('rooms').where({name: element.room}).get().then(
+                        async(r) =>{
                             var target = r.data[0]
-                            cloud.database().collection('rooms').doc(target._id).update({
+                            await cloud.database().collection('rooms').doc(target._id).update({
                                 data: {
                                     state: "预约中"
                                 }
                             })
                         }
                     )
-                }
-                if (start <= now) {
-                    cloud.database().collection('records').doc(element._id).update({
+                }else if (start <= now) {
+                    await cloud.database().collection('records').doc(element._id).update({
                         data: {
                             state: "已完成"
                         }
                     })
-                }
-                if (now < end) {
-                    cloud.database().collection('rooms').where({name: element.room}).get().then(
-                        r =>{
+                }else if (now < end) {
+                    await cloud.database().collection('rooms').where({name: element.room}).get().then(
+                        async(r) =>{
                             var target = r.data[0]
-                            cloud.database().collection('rooms').doc(target._id).update({
+                            await cloud.database().collection('rooms').doc(target._id).update({
                                 data: {
                                     state: "使用中"
                                 }
@@ -45,11 +43,11 @@ exports.main = async (event, context) => {
                         }
                     )
                 }
-                if (now >= end) {
-                    cloud.database().collection('rooms').where({name: element.room}).get().then(
-                        r =>{
+                else if (now >= end) {
+                    await cloud.database().collection('rooms').where({name: element.room}).get().then(
+                        async(r) =>{
                             var target = r.data[0]
-                            cloud.database().collection('rooms').doc(target._id).update({
+                            await cloud.database().collection('rooms').doc(target._id).update({
                                 data: {
                                     state: "空闲"
                                 }
